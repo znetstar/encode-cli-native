@@ -1,0 +1,62 @@
+{
+  "name": "encode-cli-native",
+  "description": "A plugin to add EncodeToolsNative to encode-cli",
+  "version": "1.0.0",
+  "author": "Zachary Boyd <zachary@zacharyboyd.nyc>",
+  "bugs": "https://github.com/znetstar/encode-cli-native/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "bson-ext": "^2.0.5",
+    "lzma-native": "^8.0.1",
+    "sharp": "^0.28.3",
+    "tslib": "^1.14.1",
+    "xxhash-addon": "^1.4.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "@oclif/plugin-help": "^3.2.2",
+    "@oclif/test": "^1.2.8",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.17.60",
+    "chai": "^4.3.4",
+    "globby": "^10.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.10"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/yarn.lock"
+  ],
+  "homepage": "https://github.com/znetstar/encode-cli-native",
+  "keywords": [
+    "oclif-plugin"
+  ],
+  "license": "LGPL-3.0",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "oclif-example",
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "znetstar/encode-cli-native",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
