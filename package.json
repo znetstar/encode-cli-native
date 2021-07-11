@@ -1,10 +1,11 @@
 {
     "name": "encode-cli-native",
     "description": "A plugin to add EncodeToolsNative to encode-cli",
-    "version": "1.0.3",
+    "version": "1.0.8",
     "author": "Zachary Boyd <zachary@zacharyboyd.nyc>",
     "bugs": "https://github.com/znetstar/encode-cli-native/issues",
     "dependencies": {
+        "@etomon/encode-tools": "^2.0.10",
         "@oclif/command": "^1.8.0",
         "@oclif/config": "^1.17.0",
         "bson-ext": "^2.0.5",
@@ -50,7 +51,12 @@
         "bin": "oclif-example",
         "devPlugins": [
             "@oclif/plugin-help"
-        ]
+        ],
+        "hooks": {
+            "init": [
+                "./lib/hooks/init"
+            ]
+        }
     },
     "repository": "znetstar/encode-cli-native",
     "scripts": {
